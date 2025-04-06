@@ -1,0 +1,17 @@
+@import "tailwindcss";
+:root {
+  --swiper-navigation-color: white; /* Change navigation buttons to red */
+  --swiper-pagination-color: grey; /* Change pagination bullets to blue */
+  --swiper-navigation-size: 25px !important; /* Adjust to your desired size */
+}
+.swiper-button-next:after,
+.swiper-rtl .swiper-button-prev:after {
+  position: absolute;
+  right: 50px;
+}
+
+.swiper-button-prev:after,
+.swiper-rtl .swiper-button-next:after {
+  position: absolute;
+  left: 50px;
+}
