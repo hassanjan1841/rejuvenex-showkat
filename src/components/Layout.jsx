@@ -6,6 +6,7 @@ import BackgroundEffects from "@/components/Home/background-effects";
 
 import heroBackImg from "@/assets/asset-37.webp";
 import heroBackImgMobile from "@/assets/mobile-hero.webp";
+import { NewsletterSubscription } from "./Home/newsletter-subscription";
 const Layout = () => {
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden relative">
@@ -29,6 +30,8 @@ const Layout = () => {
       <div className="relative z-10  ">
         <Navbar />
         <Outlet />
+
+        <NewsletterSubscription />
         <Footer />
       </div>
     </div>

@@ -23,13 +23,6 @@ export default function Home() {
       <CalculatorSection />
       <TestimonialSlider />
       <AffiliateProgram />
-      <div className="max-sm:hidden">
-        <Spacer height="120px" />
-      </div>
-      <NewsletterSubscription />
-      <div className="max-sm:hidden">
-        <Spacer height="120px" />
-      </div>
     </>
   );
 }
