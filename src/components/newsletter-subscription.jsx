@@ -35,7 +35,7 @@ export function NewsletterSubscription() {
   };
 
   return (
-    <section className="py-16 bg-gradient-to-b from-[#664B9E] to-[#1392D0] rounded-3xl w-[80%] mx-auto mt-16 pt-32">
+    <section className="py-16 bg-gradient-to-b from-[#664B9E] to-[#1392D0] rounded-3xl w-full sm:w-[80%] mx-auto mt-16 pt-32">
       <div className="container mx-auto px-4 max-w-3xl">
         <div className="text-center mb-8">
           <h2 className="text-4xl font-bold text-white mb-4">
@@ -47,7 +47,7 @@ export function NewsletterSubscription() {
           </p>
         </div>
 
-        <div className="bg-transparent border border-white/90 rounded-lg p-12 backdrop-blur-sm w-[80%] mx-auto">
+        <div className="bg-transparent border border-white/90 rounded-lg p-12 backdrop-blur-sm w-full sm:w-[80%] mx-auto">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
