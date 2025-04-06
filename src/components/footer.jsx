@@ -5,6 +5,7 @@ import {
   PinIcon as Pinterest,
   CircleStop,
 } from "lucide-react";
+import logo from "@/assets/asset-0.webp";
 
 export function Footer() {
   return (
@@ -13,7 +14,7 @@ export function Footer() {
         <div className="flex flex-col lg:flex-row justify-between mb-12">
           <div className="mb-8 lg:mb-0">
             <div className="mb-8">
-              <img src="src/assets/asset-0.webp" alt="logo" />
+              <img src={logo} alt="logo" />
             </div>
           </div>
 
@@ -46,8 +47,8 @@ export function Footer() {
             </div>
           </div>
         </div>
-        <div className="flex flex-wrap -mx-4">
-          <div className="w-1/2 md:w-1/4 px-4 mb-8">
+        <div className="flex flex-wrap flex-col sm:flex-row -mx-4">
+          <div className="w-full md:w-1/4 px-4 mb-8">
             <h3 className="text-2xl font-bold mb-6 pb-4 border-b  border-white inline-block">
               Our Company
             </h3>
@@ -73,7 +74,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="w-1/2 md:w-1/4 px-4 mb-8">
+          <div className="w-full md:w-1/4 px-4 mb-8">
             <h3 className="text-2xl font-bold mb-6 pb-4 border-b  border-white inline-block">
               Our Policies
             </h3>
@@ -99,7 +100,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="w-1/2 md:w-1/4 px-4 mb-8">
+          <div className="w-full md:w-1/4 px-4 mb-8">
             <h3 className="text-2xl font-bold mb-6 pb-4 border-b  border-white inline-block">
               Shopping
             </h3>
@@ -119,7 +120,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="w-1/2 md:w-1/4 px-4 mb-8">
+          <div className="w-full md:w-1/4 px-4 mb-8">
             <h3 className="text-2xl font-bold mb-6 pb-4 border-b  border-white inline-block">
               Promotions
             </h3>

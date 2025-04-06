@@ -2,7 +2,7 @@ import React from "react";
 import { Outlet } from "react-router";
 import { Footer } from "./footer";
 import Navbar from "./navbar";
-import BackgroundEffects from "@/components/background-effects";
+import BackgroundEffects from "@/components/Home/background-effects";
 
 import heroBackImg from "@/assets/asset-37.webp";
 import heroBackImgMobile from "@/assets/mobile-hero.webp";

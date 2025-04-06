@@ -26,7 +26,7 @@ export function AffiliateProgram() {
           {[1, 2, 3, 4].map((item) => (
             <div
               key={item}
-              className="bg-black/30 w-62 backdrop-blur-sm rounded-sm overflow-hidden shadow-xl"
+              className="bg-black/30 w-full sm:w-62 backdrop-blur-sm rounded-sm overflow-hidden shadow-xl"
             >
               <div className="h-80  overflow-hidden relative">
                 <img

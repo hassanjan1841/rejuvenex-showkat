@@ -1,5 +1,5 @@
 import { ChevronRight } from "lucide-react";
-import ProductDisplay from "@/components/product-display";
+import ProductDisplay from "@/components/Home/product-display";
 import { Link } from "react-router";
 
 export default function Hero() {

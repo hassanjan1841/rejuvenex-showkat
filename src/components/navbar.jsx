@@ -6,7 +6,7 @@ import {
   Menu,
   X,
 } from "lucide-react";
-import Logo from "@/components/logo";
+import Logo from "@/components/Home/logo";
 import { Link } from "react-router";
 
 export default function Navbar() {
@@ -45,49 +45,49 @@ export default function Navbar() {
           </div>
           <nav className="space-y-4 px-4">
             <Link
-              href="/"
+              to="/"
               className="block hover:text-[#a07eff] transition-colors"
             >
               Home
             </Link>
             <Link
-              href="/shop"
+              to="/products"
               className="block hover:text-[#a07eff] transition-colors"
             >
               Shop
             </Link>
             <Link
-              href="/calculator"
+              to="/calculator"
               className="block hover:text-[#a07eff] transition-colors"
             >
               Calculator
             </Link>
             <Link
-              href="/peptides"
+              to="/peptides"
               className="block hover:text-[#a07eff] transition-colors"
             >
               Peptides
             </Link>
             <Link
-              href="/affiliate"
+              to="/affiliate"
               className="block hover:text-[#a07eff] transition-colors"
             >
               Affiliate
             </Link>
             <Link
-              href="/about-us"
+              to="/about-us"
               className="block hover:text-[#a07eff] transition-colors"
             >
               About Us
             </Link>
             <Link
-              href="/contact-us"
+              to="/contact-us"
               className="block hover:text-[#a07eff] transition-colors"
             >
               Contact Us
             </Link>
             <Link
-              href="/join"
+              to="/join"
               className=" bg-[#333333] hover:bg-[#000] text-white text-center w-fit px-5 py-2 flex items-center  rounded-full transition-all"
             >
               Join Us Now
@@ -98,44 +98,47 @@ export default function Navbar() {
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center space-x-8 bg-blue">
-          <Link href="/" className="hover:text-[#a07eff] transition-colors">
+          <Link to="/" className="hover:text-[#a07eff] transition-colors">
             Home
           </Link>
-          <Link href="/shop" className="hover:text-[#a07eff] transition-colors">
+          <Link
+            to="/products"
+            className="hover:text-[#a07eff] transition-colors"
+          >
             Shop
           </Link>
           <Link
-            href="/calculator"
+            to="/calculator"
             className="hover:text-[#a07eff] transition-colors"
           >
             Calculator
           </Link>
           <Link
-            href="/peptides"
+            to="/peptides"
             className="hover:text-[#a07eff] transition-colors"
           >
             Peptides
           </Link>
           <Link
-            href="/affiliate"
+            to="/affiliate"
             className="hover:text-[#a07eff] transition-colors"
           >
             Affiliate
           </Link>
           <Link
-            href="/about-us"
+            to="/about-us"
             className="hover:text-[#a07eff] transition-colors"
           >
             About Us
           </Link>
           <Link
-            href="/contact-us"
+            to="/contact-us"
             className="hover:text-[#a07eff] transition-colors"
           >
             Contact Us
           </Link>
           <Link
-            href="/join"
+            to="/join"
             className=" bg-[#333333] hover:bg-[#000] text-white text-center w-fit px-5 py-2 flex items-center  rounded-full transition-all"
           >
             Join Us Now
