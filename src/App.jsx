@@ -9,6 +9,7 @@ import { OrderSuccessPage } from "./components/Checkout/order-success";
 import { ContactPage } from "./components/Contact/contact-page";
 import { AffiliatePage } from "./components/Affiliate/affiliate-page";
 import { AffiliateSuccessPage } from "./components/Affiliate/affiliate-success-page";
+import { PeptideCalculatorPage } from "./components/Peptide-Calculator/peptide-calculator-page";
 
 function App() {
   return (
@@ -27,7 +28,14 @@ function App() {
           <Route path="*" element={<div>404 Not Found</div>} />
           <Route path="/contact-us" element={<ContactPage />} />
           <Route path="/affiliate" element={<AffiliatePage />} />
-          <Route path="/affiliate-success" element={<AffiliateSuccessPage />} />
+          <Route
+            path="/affiliate-success"
+            element={<AffiliateSuccessPage />}
+          />{" "}
+          <Route
+            path="/peptide-calculator"
+            element={<PeptideCalculatorPage />}
+          />
         </Route>
       </Routes>
     </>

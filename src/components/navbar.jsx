@@ -61,7 +61,7 @@ export default function Navbar() {
               Shop
             </Link>
             <Link
-              to="/calculator"
+              to="/peptide-calculator"
               className="block hover:text-[#a07eff] transition-colors"
             >
               Calculator
@@ -112,7 +112,7 @@ export default function Navbar() {
             Shop
           </Link>
           <Link
-            to="/calculator"
+            to="/peptide-calculator"
             className="hover:text-[#a07eff] transition-colors"
           >
             Calculator

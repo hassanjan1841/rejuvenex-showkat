@@ -15,3 +15,116 @@
   position: absolute;
   left: 50px;
 }
+
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: #6b7280;
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #a855f7;
+  opacity: 1;
+}
+
+/* Hide default Swiper navigation buttons */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  display: none;
+}
+
+/* Product Image Gallery Customization */
+.product-image-gallery {
+  background: transparent;
+}
+
+.image-gallery-slide {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.image-gallery-image {
+  max-height: 400px;
+  object-fit: contain;
+}
+
+.image-gallery-thumbnail {
+  border: 2px solid transparent;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.image-gallery-thumbnail.active,
+.image-gallery-thumbnail:hover {
+  border-color: #a855f7;
+}
+
+.image-gallery-thumbnail-image {
+  height: 60px;
+  object-fit: contain;
+}
+
+.image-gallery-icon {
+  color: white;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+}
+
+.image-gallery-fullscreen-button,
+.image-gallery-play-button,
+.image-gallery-left-nav,
+.image-gallery-right-nav {
+  color: white;
+  opacity: 0.8;
+  transition: all 0.2s ease;
+}
+
+.image-gallery-fullscreen-button:hover,
+.image-gallery-play-button:hover,
+.image-gallery-left-nav:hover,
+.image-gallery-right-nav:hover {
+  color: white;
+  opacity: 1;
+}
+
+/* Fullscreen mode */
+.image-gallery-content.fullscreen .image-gallery-slide {
+  background: black;
+}
+
+.hexagon-bg {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  background-color: #303234;
+  position: relative;
+  z-index: 1;
+  transform: scale(1);
+  clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+  box-shadow: inset 0px 0px 100px 0px #585a5e;
+
+  transition: transform 0.3s ease;
+}
+
+.hexagon-bg:hover {
+  transform: scale(1.1); /* Example transformation on hover */
+}
+
+.hexagon-bg::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -46%);
+  bottom: 0;
+  width: 90%;
+  height: 95%;
+  background: #303234;
+
+  clip-path: inherit; /* Inherit the same clip-path */
+  z-index: -1;
+  filter: blur(5px);
+}
