@@ -6,6 +6,9 @@ import { ProductDetailPage } from "./components/Shop/product-detail-page";
 import { CartPage } from "./components/Cart/cart-page";
 import { CheckoutPage } from "./components/Checkout/checkout-page";
 import { OrderSuccessPage } from "./components/Checkout/order-success";
+import { ContactPage } from "./components/Contact/contact-page";
+import { AffiliatePage } from "./components/Affiliate/affiliate-page";
+import { AffiliateSuccessPage } from "./components/Affiliate/affiliate-success-page";
 
 function App() {
   return (
@@ -22,6 +25,9 @@ function App() {
           <Route path="checkout" element={<CheckoutPage />} />
           <Route path="order-success" element={<OrderSuccessPage />} />
           <Route path="*" element={<div>404 Not Found</div>} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/affiliate" element={<AffiliatePage />} />
+          <Route path="/affiliate-success" element={<AffiliateSuccessPage />} />
         </Route>
       </Routes>
     </>
