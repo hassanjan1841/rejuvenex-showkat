@@ -25,7 +25,7 @@ function App() {
           <Route path="checkout" element={<CheckoutPage />} />
           <Route path="order-success" element={<OrderSuccessPage />} />
           <Route path="*" element={<div>404 Not Found</div>} />
-          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/contact-us" element={<ContactPage />} />
           <Route path="/affiliate" element={<AffiliatePage />} />
           <Route path="/affiliate-success" element={<AffiliateSuccessPage />} />
         </Route>

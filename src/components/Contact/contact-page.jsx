@@ -31,11 +31,11 @@ export function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-black to-blue-900 text-white">
+    <div className="min-h-screen text-white">
       <div className="container mx-auto px-4 py-12">
         <h1 className="text-4xl md:text-5xl font-bold mb-12">CONTACT US</h1>
 
-        <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 md:p-10">
+        <div className="bg-[#FFFFFF0D] border border-gray-700 shadow shadow-gray-500 backdrop-blur-sm rounded-xl p-6 md:p-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Left Column - Contact Info */}
             <div className="space-y-8">
