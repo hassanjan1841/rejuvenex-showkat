@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Phone, Mail, ArrowRight } from "lucide-react";
+import { Phone, Mail, ArrowRight, Leaf } from "lucide-react";
 
 export function ContactPage() {
   const [contactForm, setContactForm] = useState({
@@ -39,13 +39,16 @@ export function ContactPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Left Column - Contact Info */}
             <div className="space-y-8">
-              <div className="inline-block bg-black/30 rounded-full px-4 py-2">
-                <span className="flex items-center gap-2">
-                  <span className="text-white">Get in Touch</span>
+              <div className="inline-block bg-black/30 rounded-full border border-white font-bold px-4 py-2">
+                <span className="flex items-center justify-between gap-2">
+                  <span className="text-white">
+                    <Leaf size={24} />
+                  </span>
+                  <span className="text-white"> Get in Touch</span>
                 </span>
               </div>
 
-              <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+              <h2 className="text-3xl md:text-4xl xl:text-5xl font-bold leading-tight">
                 Got questions or need help? We're here for you—just send us a
                 message!
               </h2>
@@ -55,7 +58,7 @@ export function ContactPage() {
                   Contact Info
                 </h3>
 
-                <div className="space-y-6">
+                <div className="space-y-6 ">
                   <div className="flex items-start">
                     <div className="bg-purple-700 p-3 rounded-lg mr-4">
                       <Phone size={24} className="text-white" />
@@ -81,7 +84,7 @@ export function ContactPage() {
 
             {/* Right Column - Contact Form */}
             <div>
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4 lg:pt-32">
                 <div>
                   <input
                     type="text"
