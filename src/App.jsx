@@ -10,6 +10,7 @@ import { ContactPage } from "./components/Contact/contact-page";
 import { AffiliatePage } from "./components/Affiliate/affiliate-page";
 import { AffiliateSuccessPage } from "./components/Affiliate/affiliate-success-page";
 import { PeptideCalculatorPage } from "./components/Peptide-Calculator/peptide-calculator-page";
+import { AboutPage } from "./components/ABout/about-us-page";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
             path="/peptide-calculator"
             element={<PeptideCalculatorPage />}
           />
+          <Route path="/about-us" element={<AboutPage />} />
         </Route>
       </Routes>
     </>

@@ -64,13 +64,13 @@ export function PeptideCalculatorPage() {
           experiments.
         </p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 relative">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 relative">
           {/* Left Column - Steps */}
           <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 ">
             <div className="flex flex-col items-center justify-center pb-12">
               <div className=" flex justify-start gap-8 md:gap-16 lg:gap-24 w-full">
                 {/* Left Column */}
-                <div className="flex flex-col gap-[60px] w-full">
+                <div className="flex flex-col max-lg:items-center gap-[60px] w-full">
                   <div className="relative z-0">
                     <HexagonStep
                       step="01"
@@ -123,7 +123,7 @@ export function PeptideCalculatorPage() {
           </div>
 
           {/* Right Column - Calculator */}
-          <div className="space-y-4">
+          <div className="space-y-4 flex justify-center max-xl:mt-62">
             <div className="max-w-[500px]">
               <div className="flex flex-col gap-5 overflow-hidden shadow-xl">
                 {/* Volume Input */}
