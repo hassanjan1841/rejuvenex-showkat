@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { useState } from "react"
+import { useState } from "react";
 import {
   Search,
   Edit,
@@ -13,7 +13,7 @@ import {
   Calendar,
   Lock,
   Unlock,
-} from "lucide-react"
+} from "lucide-react";
 
 // Dummy user data
 const dummyUsers = [
@@ -67,53 +67,56 @@ const dummyUsers = [
     status: "active",
     role: "admin",
   },
-]
+];
 
 export function UsersManagement() {
-  const [searchTerm, setSearchTerm] = useState("")
-  const [currentPage, setCurrentPage] = useState(1)
-  const [statusFilter, setStatusFilter] = useState<string | null>(null)
-  const [showAddModal, setShowAddModal] = useState(false)
-  const [showEditModal, setShowEditModal] = useState(false)
-  const [currentUser, setCurrentUser] = useState<any>(null)
+  const [searchTerm, setSearchTerm] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [statusFilter, setStatusFilter] = useState<string | null>(null);
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [currentUser, setCurrentUser] = useState<any>(null);
 
-  const itemsPerPage = 10
+  const itemsPerPage = 10;
 
   // Filter users based on search term and status
   const filteredUsers = dummyUsers.filter((user) => {
     const matchesSearch =
       user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      user.email.toLowerCase().includes(searchTerm.toLowerCase())
-    const matchesStatus = statusFilter ? user.status === statusFilter : true
-    return matchesSearch && matchesStatus
-  })
+      user.email.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesStatus = statusFilter ? user.status === statusFilter : true;
+    return matchesSearch && matchesStatus;
+  });
 
   // Calculate pagination
-  const totalPages = Math.ceil(filteredUsers.length / itemsPerPage)
-  const startIndex = (currentPage - 1) * itemsPerPage
-  const paginatedUsers = filteredUsers.slice(startIndex, startIndex + itemsPerPage)
+  const totalPages = Math.ceil(filteredUsers.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const paginatedUsers = filteredUsers.slice(
+    startIndex,
+    startIndex + itemsPerPage
+  );
 
   const handleAddUser = () => {
-    setShowAddModal(true)
-  }
+    setShowAddModal(true);
+  };
 
   const handleEditUser = (user: any) => {
-    setCurrentUser(user)
-    setShowEditModal(true)
-  }
+    setCurrentUser(user);
+    setShowEditModal(true);
+  };
 
   const handleDeleteUser = (userId: string) => {
     if (window.confirm("Are you sure you want to delete this user?")) {
       // In a real app, you would call an API to delete the user
-      alert(`User ${userId} would be deleted`)
+      alert(`User ${userId} would be deleted`);
     }
-  }
+  };
 
   const handleToggleStatus = (userId: string, currentStatus: string) => {
-    const newStatus = currentStatus === "active" ? "inactive" : "active"
+    const newStatus = currentStatus === "active" ? "inactive" : "active";
     // In a real app, you would call an API to update the user status
-    alert(`User ${userId} status would be changed to ${newStatus}`)
-  }
+    alert(`User ${userId} status would be changed to ${newStatus}`);
+  };
 
   return (
     <div className="space-y-6">
@@ -139,7 +142,10 @@ export function UsersManagement() {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+          <Search
+            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+            size={18}
+          />
         </div>
 
         <div className="relative">
@@ -204,7 +210,9 @@ export function UsersManagement() {
                         </div>
                       </div>
                       <div className="ml-4">
-                        <div className="text-sm font-medium text-gray-900">{user.name}</div>
+                        <div className="text-sm font-medium text-gray-900">
+                          {user.name}
+                        </div>
                         <div className="text-sm text-gray-500">{user.role}</div>
                       </div>
                     </div>
@@ -228,10 +236,13 @@ export function UsersManagement() {
                   <td className="px-6 py-4 whitespace-nowrap">
                     <span
                       className={`px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                        user.status === "active" ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"
+                        user.status === "active"
+                          ? "bg-green-100 text-green-800"
+                          : "bg-red-100 text-red-800"
                       }`}
                     >
-                      {user.status.charAt(0).toUpperCase() + user.status.slice(1)}
+                      {user.status.charAt(0).toUpperCase() +
+                        user.status.slice(1)}
                     </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
@@ -242,9 +253,15 @@ export function UsersManagement() {
                           ? "text-red-600 hover:text-red-900"
                           : "text-green-600 hover:text-green-900"
                       } mr-4`}
-                      title={user.status === "active" ? "Deactivate" : "Activate"}
+                      title={
+                        user.status === "active" ? "Deactivate" : "Activate"
+                      }
                     >
-                      {user.status === "active" ? <Lock size={18} /> : <Unlock size={18} />}
+                      {user.status === "active" ? (
+                        <Lock size={18} />
+                      ) : (
+                        <Unlock size={18} />
+                      )}
                     </button>
                     <button
                       onClick={() => handleEditUser(user)}
@@ -279,7 +296,9 @@ export function UsersManagement() {
                 Previous
               </button>
               <button
-                onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                onClick={() =>
+                  setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+                }
                 disabled={currentPage === totalPages}
                 className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
               >
@@ -289,15 +308,24 @@ export function UsersManagement() {
             <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm text-gray-700">
-                  Showing <span className="font-medium">{startIndex + 1}</span> to{" "}
-                  <span className="font-medium">{Math.min(startIndex + itemsPerPage, filteredUsers.length)}</span> of{" "}
-                  <span className="font-medium">{filteredUsers.length}</span> results
+                  Showing <span className="font-medium">{startIndex + 1}</span>{" "}
+                  to{" "}
+                  <span className="font-medium">
+                    {Math.min(startIndex + itemsPerPage, filteredUsers.length)}
+                  </span>{" "}
+                  of <span className="font-medium">{filteredUsers.length}</span>{" "}
+                  results
                 </p>
               </div>
               <div>
-                <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                <nav
+                  className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px"
+                  aria-label="Pagination"
+                >
                   <button
-                    onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                    onClick={() =>
+                      setCurrentPage((prev) => Math.max(prev - 1, 1))
+                    }
                     disabled={currentPage === 1}
                     className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
@@ -321,7 +349,9 @@ export function UsersManagement() {
                   ))}
 
                   <button
-                    onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                    onClick={() =>
+                      setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+                    }
                     disabled={currentPage === totalPages}
                     className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
@@ -336,6 +366,306 @@ export function UsersManagement() {
       </div>
 
       {/* Add/Edit User Modals would be similar to the product modals but with fields specific to users */}
+
+      {/* Add User Modal */}
+      {showAddModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="px-6 py-4 border-b border-gray-200">
+              <h3 className="text-lg font-semibold">Add New User</h3>
+            </div>
+            <div className="p-6">
+              <form className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Full Name
+                    </label>
+                    <input
+                      type="text"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      placeholder="Enter full name"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Email Address
+                    </label>
+                    <input
+                      type="email"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      placeholder="Enter email address"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      placeholder="Enter phone number"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Role
+                    </label>
+                    <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                      <option value="customer">Customer</option>
+                      <option value="admin">Admin</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Address
+                  </label>
+                  <input
+                    type="text"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder="Enter address"
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      City
+                    </label>
+                    <input
+                      type="text"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      placeholder="Enter city"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      State
+                    </label>
+                    <input
+                      type="text"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      placeholder="Enter state"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      ZIP Code
+                    </label>
+                    <input
+                      type="text"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      placeholder="Enter ZIP code"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder="Enter password"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Status
+                  </label>
+                  <div className="flex space-x-4">
+                    <div className="flex items-center">
+                      <input
+                        type="radio"
+                        id="statusActive"
+                        name="status"
+                        value="active"
+                        defaultChecked
+                        className="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500"
+                      />
+                      <label
+                        htmlFor="statusActive"
+                        className="ml-2 block text-sm text-gray-700"
+                      >
+                        Active
+                      </label>
+                    </div>
+                    <div className="flex items-center">
+                      <input
+                        type="radio"
+                        id="statusInactive"
+                        name="status"
+                        value="inactive"
+                        className="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500"
+                      />
+                      <label
+                        htmlFor="statusInactive"
+                        className="ml-2 block text-sm text-gray-700"
+                      >
+                        Inactive
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div className="px-6 py-4 border-t border-gray-200 flex justify-end space-x-3">
+              <button
+                onClick={() => setShowAddModal(false)}
+                className="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={() => {
+                  alert("User would be added");
+                  setShowAddModal(false);
+                }}
+                className="px-4 py-2 bg-blue-600 border border-transparent rounded-md text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                Add User
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Edit User Modal */}
+      {showEditModal && currentUser && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="px-6 py-4 border-b border-gray-200">
+              <h3 className="text-lg font-semibold">Edit User</h3>
+            </div>
+            <div className="p-6">
+              <form className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Full Name
+                    </label>
+                    <input
+                      type="text"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      defaultValue={currentUser.name}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Email Address
+                    </label>
+                    <input
+                      type="email"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      defaultValue={currentUser.email}
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      defaultValue={currentUser.phone}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Role
+                    </label>
+                    <select
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      defaultValue={currentUser.role}
+                    >
+                      <option value="customer">Customer</option>
+                      <option value="admin">Admin</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Address
+                  </label>
+                  <input
+                    type="text"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    defaultValue={currentUser.address}
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Status
+                  </label>
+                  <div className="flex space-x-4">
+                    <div className="flex items-center">
+                      <input
+                        type="radio"
+                        id="statusActiveEdit"
+                        name="statusEdit"
+                        value="active"
+                        defaultChecked={currentUser.status === "active"}
+                        className="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500"
+                      />
+                      <label
+                        htmlFor="statusActiveEdit"
+                        className="ml-2 block text-sm text-gray-700"
+                      >
+                        Active
+                      </label>
+                    </div>
+                    <div className="flex items-center">
+                      <input
+                        type="radio"
+                        id="statusInactiveEdit"
+                        name="statusEdit"
+                        value="inactive"
+                        defaultChecked={currentUser.status === "inactive"}
+                        className="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500"
+                      />
+                      <label
+                        htmlFor="statusInactiveEdit"
+                        className="ml-2 block text-sm text-gray-700"
+                      >
+                        Inactive
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div className="px-6 py-4 border-t border-gray-200 flex justify-end space-x-3">
+              <button
+                onClick={() => setShowEditModal(false)}
+                className="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={() => {
+                  alert(`User ${currentUser.id} would be updated`);
+                  setShowEditModal(false);
+                }}
+                className="px-4 py-2 bg-blue-600 border border-transparent rounded-md text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                Save Changes
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
-  )
+  );
 }
