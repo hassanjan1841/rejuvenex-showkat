@@ -2,22 +2,26 @@ import { Route, Routes } from "react-router";
 import Home from "@/pages/home";
 import Layout from "@/components/Layout";
 import Shop from "@/pages/shop";
-import { ProductDetailPage } from "./components/Shop/product-detail-page";
-import { CartPage } from "./components/Cart/cart-page";
-import { CheckoutPage } from "./components/Checkout/checkout-page";
-import { OrderSuccessPage } from "./components/Checkout/order-success";
-import { ContactPage } from "./components/Contact/contact-page";
-import { AffiliatePage } from "./components/Affiliate/affiliate-page";
-import { AffiliateSuccessPage } from "./components/Affiliate/affiliate-success-page";
-import { PeptideCalculatorPage } from "./components/Peptide-Calculator/peptide-calculator-page";
-import { AboutPage } from "./components/ABout/about-us-page";
-import { PeptideProvider } from "./context/peptide-context";
-import { PeptidesPage } from "./components/Peptides/peptides-page";
+import { ProductDetailPage } from "@/components/Shop/product-detail-page";
+import { CartPage } from "@/components/Cart/cart-page";
+import { CheckoutPage } from "@/components/Checkout/checkout-page";
+import { OrderSuccessPage } from "@/components/Checkout/order-success";
+import { ContactPage } from "@/components/Contact/contact-page";
+import { AffiliatePage } from "@/components/Affiliate/affiliate-page";
+import { AffiliateSuccessPage } from "@/components/Affiliate/affiliate-success-page";
+import { PeptideCalculatorPage } from "@/components/Peptide-Calculator/peptide-calculator-page";
+import { AboutPage } from "@/components/ABout/about-us-page";
+import { PeptideProvider } from "@/context/peptide-context";
+import { PeptidesPage } from "@/components/Peptides/peptides-page";
+import { AdminDashboard } from "@/pages/admin/dashboard";
 
 function App() {
   return (
     <>
       <Routes>
+        {/* Admin Dashboard Route */}
+        <Route path="/admin/*" element={<AdminDashboard />} />
+
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/products" element={<Shop />} />
